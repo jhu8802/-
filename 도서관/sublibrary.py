@@ -33,14 +33,16 @@ class sub:
                 print("{0}으로 수정 되었습니다.".format(txt[i]))
     
     def delete(self,text): #삭제
-        print("도서삭제")
-        find4 = str(input("삭제하고싶은 도서명, 저자, 출판연도, 출판사명, 장르 입력\n"))
-        for i in range(0,len(txt)):
-            if find4 in txt[i]:
-                print("{0}이 삭제 되었습니다.".format(txt[i]))
-                del txt[i]
-                
-                
+        for i in range(len(txt)):
+            print(" {0} : {1}".format(i,txt[i]))
+        no = int(input("삭제할 번호를 입력하시오"))
+        try:
+            if no <= len(txt):
+                print("{0} 이 삭제되었습니다. ".format(txt[no]))
+                del txt[no]
+        except IndexError:   
+            print("범위를 벗어납니다.")             
+
 
     def show(self,text): #목록
         print("=====도서목록=====")
